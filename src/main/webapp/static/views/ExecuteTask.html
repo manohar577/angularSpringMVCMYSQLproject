@@ -1,0 +1,49 @@
+<div class="container-fluid">
+	<div class="row_new">
+		<div class="col-md-12">
+			<div class="row_new">
+			<ul class="breadcrumb">
+				<li><span>Home</span> <span class="divider"></span></li> 	
+				<li><span>Courses</span> <span class="divider"></span></li>
+				<li><span>Activities</span> <span class="divider"></span></li>
+				<li class="active">Task:{{ctrlExecTask.task.taskId}} </li>
+			</ul>
+			</div>
+			</div>
+
+			<div class="col-md-12">
+			  <div>
+			  <ul class="nav nav-pills nav-justified">
+			    <li ng-class="ctrlExecTask.psClass" ng-click="ctrlExecTask.psClick()"><a href="" >Problem Statement</a></li>
+			    <li ng-class="ctrlExecTask.codeClass" ng-click="ctrlExecTask.codeClick()"><a href="" >Code</a></li>
+			    <li ng-class="ctrlExecTask.utClass" ng-click="ctrlExecTask.utClick()"><a href="" >Unit Tests</a></li>
+			  </ul>	
+			  </div>
+			  
+			<div ng-hide="ctrlExecTask.probStmt" class="col-md-12">
+			<br>
+			<h3 >Problem Statement for Task:</h3>
+				<div  class="probStmtClass">{{ctrlExecTask.task.taskStatement}} </div><br>
+
+			</div> 
+			  
+			<div ng-hide="ctrlExecTask.code" class="col-md-12">
+			<br>
+			<span><button class="run buttonClass" ng-click="ctrlExecTask.runCompile()"> RUN </button> &nbsp;&nbsp; <button class="save buttonClass"> Save </button> &nbsp;&nbsp; <button class="load buttonClass"> LOAD </button></span>
+			<br>
+			<br>
+				<div  class="codeClass"> <textarea class="text_edit" id="my_text" ng-model="ctrlExecTask.resultCode"></textarea> </div><br>
+			</div> 
+			
+			</div>
+			
+			<div ng-hide="ctrlExecTask.unitTest" class="col-md-12">
+			  <br>
+			  <h3 >Unit Test Cases for Task:</h3>
+				<div  class="unitTestClass">{{ctrlExecTask.task.taskStatement}} </div><br>
+			</div> 
+
+		
+	</div>
+</div>
+

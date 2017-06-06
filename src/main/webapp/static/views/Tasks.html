@@ -1,0 +1,29 @@
+<div class="container-fluid">
+	<div class="row_new">
+		<div class="col-md-12">
+			<div class="row_new">
+			<ul class="breadcrumb">
+				<li><span>Home</span> <span class="divider"></span></li> 	
+				<li><span>Courses</span> <span class="divider"></span></li>
+				<li><span>Activities</span> <span class="divider">/</span></li>
+				<li class="active">Tasks</li>
+			</ul>
+				<div class="col-md-12 breadcrumb">
+					<h1>List of Tasks for Activity : {{ctrlTask.activityName}}</h1>
+				</div>
+			</div>
+			</div>
+
+			<div class="col-md-12">
+			<div ng-repeat="task in ctrlTask.tasks" ng-click="ctrlTask.getTask(task)">
+				<div  class="courseList"><span> <a>{{task.taskId}} -- {{task.taskName}} </a> </span>
+				<span class="courseListSpan">EndDate - {{task.EndDate}} || StartDate - {{task.startDate}} </span> </div><br>
+
+			</div>
+			</div>
+		
+
+		
+	</div>
+</div>
+

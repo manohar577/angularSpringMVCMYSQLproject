@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>BeanGrinder</title>
+
+    <meta name="Harika Hari" content="Bean Grinder">
+    
+    <script src="static/plugins/jquery.min.js"></script>
+    <script src="static/plugins/bootstrap.min.js"></script>
+<!-- 	<script src="static/plugins/angular.min.js"></script>
+	<script src="static/plugins/angular-route.min.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+	
+	<script src="static/js/app.js"></script>
+	<script src="static/js/controller/ctrlHome.js"></script>
+	<script src="static/js/controller/ctrlCourse.js"></script>
+	<script src="static/js/controller/ctrlExecTask.js"></script>
+	<script src="static/js/controller/ctrlActivity.js"></script>
+	<script src="static/js/controller/ctrlLogin.js"></script>
+	<script src="static/js/controller/ctrlTask.js"></script>
+	<script src="static/js/controller/ctrlInstructor.js"></script>
+	
+	<script src="static/js/service/homeService.js"></script>
+	<script src="static/js/service/loginService.js"></script>
+	<script src="static/js/service/courseService.js"></script>
+	<script src="static/js/service/activityService.js"></script>
+	<script src="static/js/service/taskService.js"></script>
+	<script src="static/js/service/execTaskService.js"></script>    
+	<script src="static/js/service/instructorService.js"></script>   
+	
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+
+  </head>
+  <body ng-app="app" ng-controller="ctrlHome as ctrlHome" class="bodyClass">
+
+    <div class="containerS-fluid">
+    <header>
+    <div class="row_new">{{ctrlLogin.Id}}</div>
+	<div class="row_new header_view">
+		<div class="col-md-3">
+			<img class="headerImage" alt="Bootstrap Image Preview" src="static/images/BeanGrinder.png">
+		</div>
+		<div class="col-md-9">
+			<h1 class="header">
+						Automata BeanGrinder
+					</h1>
+				<p style="margin-left: 10%;"> <strong>Automata Beangrinder is a platform for teaching introductory Automata Theory Concepts.</strong><br></p>
+				<p>Beangrinder contains problems that can range in complexity from a few lines to the construction of multiple blocks.
+				 and all you need is a web browser! </p><br>
+				 <button class="logout buttonClass" ng-hide="logoutShow" ng-click="logoutClick()"> LOGOUT </button>
+		</div>
+	</div>
+	
+	<div class="row_new">
+	
+	</div>
+	</header>
+	
+	<div class="row_view">
+		<div ng-view></div>
+	</div>
+			
+			
+			<footer> 
+			<div class="row_new">
+				<div class="col-md-4">
+					<img alt="NAU LOGO" src="static/images/nau_logo.gif">
+				</div>
+				<div class="col-md-4"><br>
+					<blockquote>
+						<p>
+							Copyright 2017-2018 --Dr. James Palmer.
+						</p> <small>Associate Professor<cite>School of Informatics, Computing, and Cyber Systems</cite></small>
+					</blockquote>
+				</div>
+				<div class="col-md-4"> <br>
+					
+					<address>
+						 <strong>Northern Arizona University</strong><br> Coconino National Forest, S San Francisco St <br> Flagstaff, AZ 86011<br> <abbr title="Phone">P:</abbr> (928) 523-9011
+					</address>
+				</div>
+			</div>
+			</footer>
+		
+
+</div>
+
+  </body>
+</html>

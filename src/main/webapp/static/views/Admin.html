@@ -1,0 +1,203 @@
+<div class="container-fluid">
+	<div class="row_new">
+			<div class="col-md-12">
+			  <div>
+			  <ul class="nav nav-pills nav-justified">
+			    <li ng-class="ctrlAdmin.addStudentClass" ng-click="ctrlAdmin.addStudentClick()"><a href="" >ADD STUDENT</a></li>
+			    <li ng-class="ctrlAdmin.removeStudentClass" ng-click="ctrlAdmin.rmvStudentClick()"><a href="" >REMOVE STUDENT</a></li>
+			    <li ng-class="ctrlAdmin.updateStudentClass" ng-click="ctrlAdmin.updateStudentClick()"><a href="" >UPDATE STUDENT</a></li>
+			    <li ng-class="ctrlAdmin.addInstructorClass" ng-click="ctrlAdmin.addInstructorClick()"><a href="" >ADD INSTRUCTOR</a></li>
+			    <li ng-class="ctrlAdmin.removeInstructorClass" ng-click="ctrlAdmin.removeInstructorClick()"><a href="" >REMOVE INSTRUCTOR</a></li>
+			    <li ng-class="ctrlAdmin.updateInstructorClass" ng-click="ctrlAdmin.updateInstructorClick()"><a href="" >UPDATE INSTRUCTOR</a></li>
+			  </ul>	
+			  </div>
+			  
+			<div ng-hide="ctrlAdmin.addStudent" class="col-md-12">
+				<br>
+				<h2 ng-hide="ctrlAdmin.Error" style="color: red">Please enter all details for adding a new Student</h2>
+				<h2 ng-hide="ctrlAdmin.Success" style="color: green">A new Student is successfully added</h2>
+				<br><br>
+				<table style="margin-left: 35%">
+					<tr>
+						<td style="width: 150px;"><P>Student Id :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.studentId" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Student Password :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.studentPassword" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Student Name :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.studentName" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Student Email :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.studentEmail" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Student Department :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.studentDept" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P></P></td>
+						<td style="width: 150px; "><input type="button" value="ADD STUDENT" ng-click="ctrlAdmin.addStudentAdmin()" /></td>
+					</tr>					
+				</table>
+
+			</div> 
+			  
+			<div ng-hide="ctrlAdmin.rmvStudent" class="col-md-12">
+			<br>
+				<h2 ng-hide="ctrlAdmin.Error" style="color: red">Unfortunately cannot Remove the student now please try again later</h2>
+				<h2 ng-hide="ctrlAdmin.Success" style="color: green">Student is successfully removed</h2>
+				<br><br>
+			<div class="col-md-12">
+			<div ng-repeat="student in ctrlAdmin.students">
+				<div  class="courseList"><span> <a>{{student.studentId}} -- {{student.studentName}} </a> </span>
+				<span class="courseListSpan"><input type="button" value="REMOVE" ng-click="ctrlAdmin.rmvStudentAdmin(student.studentId)"/> </span> </div><br>
+
+			</div>
+			</div>
+
+			</div> 
+			
+			
+			
+			
+			<div ng-hide="ctrlAdmin.updateStudent" class="col-md-12">
+			
+				<br>
+				<h2 ng-hide="ctrlAdmin.Error" style="color: red">Please enter all details for updating a new Activity</h2>
+				<h2 ng-hide="ctrlAdmin.Success" style="color: green">Student details are  is successfully updated</h2>
+				<br><br>
+				<table style="margin-left: 35%">
+					<tr>
+						<td style="width: 150px;"><P>Student Id :</P></td>
+						<td style="width: 150px;">
+						<select ng-model="ctrlAdmin.updateStudentIdActual">
+								<option ng-repeat="student in ctrlAdmin.students">{{student.studentId}}</option>
+						</select> 
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Student Id :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.updateStudentId" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Student Password :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.updateStudentPassword" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Student Name :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.updateStudentName" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Student Email :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.updateStudentEmail" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Student Department :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.updateStudentDept" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P></P></td>
+						<td style="width: 150px; "><input type="button" value="UPDATE STUDENT" ng-click="ctrlAdmin.updateStudentAdmin()" /></td>
+					</tr>				
+				</table>
+			
+			</div>
+			
+			
+			
+			
+			<div ng-hide="ctrlAdmin.addInstructor" class="col-md-12">
+				<br>
+				<h2 ng-hide="ctrlAdmin.Error" style="color: red">Please enter all details for adding a new Instructor</h2>
+				<h2 ng-hide="ctrlAdmin.Success" style="color: green">A new Instructor is successfully added</h2>
+				<br><br>
+				<table style="margin-left: 35%">
+					<tr>
+						<td style="width: 150px;"><P>Instructor Id :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.instructorId" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Instructor Password :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.instructorPassword" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Instructor Name :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.instructorName" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Instructor Email :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.instructorEmail" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Instructor Department :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.instructorDept" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P></P></td>
+						<td style="width: 150px; "><input type="button" value="ADD INSTRUCTOR" ng-click="ctrlAdmin.addInstructorAdmin()" /></td>
+					</tr>					
+				</table>
+			</div>
+			
+			<div ng-hide="ctrlAdmin.rmvInstructor" class="col-md-12">
+									<br>
+				<h2 ng-hide="ctrlAdmin.Error" style="color: red">Unfortunately cannot Remove the Instructor now please try again later</h2>
+				<h2 ng-hide="ctrlAdmin.Success" style="color: green"> Instructor is successfully removed</h2>
+				<br><br>
+			<div class="col-md-12">
+			<div ng-repeat="instructor in ctrlAdmin.instructors">
+				<div  class="courseList"><span> <a>{{instructor.instructorId}} -- {{instructor.instructorName}} </a> </span>
+				<span class="courseListSpan"><input type="button" value="REMOVE" ng-click="ctrlAdmin.removeInstructorAdmin(instructor.instructorId)"/> </span> </div><br>
+
+			</div>
+			</div>
+			
+			</div>
+			
+			<div ng-hide="ctrlAdmin.updateInstructor" class="col-md-12">
+			<br>
+				<h2 ng-hide="ctrlAdmin.Error" style="color: red">Please enter all details for adding a new Student</h2>
+				<h2 ng-hide="ctrlAdmin.Success" style="color: green">Student is successfully added to the course</h2>
+				<br><br>
+				<table style="margin-left: 35%">
+					<tr>
+						<td style="width: 150px;"><P>Instructor Id :</P></td>
+						<td style="width: 150px;">
+						<select ng-model="ctrlAdmin.updateInstructorIdActual">
+								<option ng-repeat="instructor in ctrlAdmin.instructors">{{instructor.instructorId}}</option>
+						</select> 
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Instructor Id :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.updateInstructorId" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Instructor Password :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.updateInstructorPassword" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Instructor Name :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.updateInstructorName" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Instructor Email :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.updateInstructorEmail" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Instructor Department :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlAdmin.updateInstructorDept" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P></P></td>
+						<td style="width: 150px; "><input type="button" value="UPDATE INSTRUCTOR" ng-click="ctrlAdmin.updateInstructorAdmin()" /></td>
+					</tr>				
+				</table>
+			</div>
+	</div>
+</div>
+

@@ -1,0 +1,33 @@
+<div class="container-fluid">
+	<div class="row_new">
+		<div class="col-md-12">
+			<div class="row_new">
+			<ul class="breadcrumb">
+				<li><span>Home</span> <span class="divider">/</span></li>
+				<li class="active">Courses</li>
+			</ul>
+				<div class="col-md-12 breadcrumb">
+					<h1>Enrolled Course List</h1>
+				</div>
+			</div>
+			</div>
+
+			<div class="col-md-12">
+			<div ng-repeat="course in ctrlCourse.courses" ng-click="ctrlCourse.courseClick(course.courseId, course.courseName)">
+				<div  class="courseList"><span> <a>{{course.courseId}} -- {{course.courseName}} </a> </span>
+				<span class="courseListSpan">EndDate - {{course.EndDate}} || StartDate - {{course.startDate}} </span> </div><br>
+				
+				<!--<button class="accordion" >{{course.courseId}} -- {{course.courseName}}</button>
+				 <div class="panel">
+				<h3>Course Details : </h3>
+				<p>Course EndDate - {{course.EndDate}}</p>	<p>Course StartDate - {{course.startDate}}</p>
+				</div> -->
+
+			</div>
+			</div>
+		
+
+		
+	</div>
+</div>
+

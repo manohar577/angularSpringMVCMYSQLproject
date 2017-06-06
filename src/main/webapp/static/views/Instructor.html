@@ -1,0 +1,228 @@
+<div class="container-fluid">
+	<div class="row_new">
+			<div class="col-md-12">
+			  <div>
+			  <ul class="nav nav-pills nav-justified">
+			    <li ng-class="ctrlInstructor.addCourseClass" ng-click="ctrlInstructor.addCourseClick()"><a href="" >ADD COURSE</a></li>
+			    <li ng-class="ctrlInstructor.removeCourseClass" ng-click="ctrlInstructor.rmvCourseClick()"><a href="" >REMOVE COURSE</a></li>
+			    <li ng-class="ctrlInstructor.addActClass" ng-click="ctrlInstructor.addActClick()"><a href="" >ADD ACTIVITIES</a></li>
+			    <li ng-class="ctrlInstructor.removeActClass" ng-click="ctrlInstructor.rmvActClick()"><a href="" >REMOVE ACTIVITIES</a></li>
+			    <li ng-class="ctrlInstructor.addTaskClass" ng-click="ctrlInstructor.addTaskClick()"><a href="" >ADD TAKS</a></li>
+			    <li ng-class="ctrlInstructor.removeTaskClass" ng-click="ctrlInstructor.rmvTaskClick()"><a href="" >REMOVE TASKS</a></li>
+			    <li ng-class="ctrlInstructor.addStdClass" ng-click="ctrlInstructor.addStdClick()"><a href="" >ADD STUDENT(S) TO A COURSE</a></li>
+			    <li ng-class="ctrlInstructor.removestdClass" ng-click="ctrlInstructor.rmvStdClick()"><a href="" >REMOVE STUDENT(S) FROM A COURSE</a></li>
+			  </ul>	
+			  </div>
+			  
+			<div ng-hide="ctrlInstructor.addCourse" class="col-md-12">
+				<br>
+				<h2 ng-hide="ctrlInstructor.Error" style="color: red">Please enter all details for adding a new course</h2>
+				<h2 ng-hide="ctrlInstructor.Success" style="color: green">A new Course is successfully added</h2>
+				<br><br>
+				<table style="margin-left: 35%">
+					<tr>
+						<td style="width: 150px;"><P>Course Id :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlInstructor.courseId" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Course Name :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlInstructor.courseName" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Start Date :</P></td>
+						<td style="width: 150px;"><input type="date" ng-model="ctrlInstructor.startDate" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>End Date :</P></td>
+						<td style="width: 150px;"><input type="date" ng-model="ctrlInstructor.endDate" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P></P></td>
+						<td style="width: 150px; "><input type="button" value="ADD COURSE" ng-click="ctrlInstructor.courseSubmitClick()" /></td>
+					</tr>					
+				</table>
+
+			</div> 
+			  
+			<div ng-hide="ctrlInstructor.rmvCourse" class="col-md-12">
+			<br>
+				<h2 ng-hide="ctrlInstructor.Error" style="color: red">Unfortunately cannot Remove the course now please try again later</h2>
+				<h2 ng-hide="ctrlInstructor.Success" style="color: green">Course is successfully removed</h2>
+				<br><br>
+			<div class="col-md-12">
+			<div ng-repeat="course in ctrlInstructor.courses">
+				<div  class="courseList"><span> <a>{{course.courseId}} -- {{course.courseName}} </a> </span>
+				<span class="courseListSpan"><input type="button" value="REMOVE" ng-click="ctrlInstructor.courseRemoveClick(course.courseId)"/> </span> </div><br>
+
+			</div>
+			</div>
+
+			</div> 
+			
+			
+			
+			
+			<div ng-hide="ctrlInstructor.addAct" class="col-md-12">
+			
+				<br>
+				<h2 ng-hide="ctrlInstructor.Error" style="color: red">Please enter all details for adding a new Activity</h2>
+				<h2 ng-hide="ctrlInstructor.Success" style="color: green">Course is successfully added</h2>
+				<br><br>
+				<table style="margin-left: 35%">
+					<tr>
+						<td style="width: 150px;"><P>Course Id :</P></td>
+						<td style="width: 150px;">
+						<select ng-model="ctrlInstructor.actCourseId">
+								<option ng-repeat="course in ctrlInstructor.courses">{{course.courseId}}</option>
+						</select> 
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Activity Name :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlInstructor.ActivityName" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Activity Details :</P></td>
+						<td style="width: 150px;"><textarea id="act_details" ng-model="ctrlInstructor.ActivityDetails"></textarea></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Start Date :</P></td>
+						<td style="width: 150px;"><input type="date" ng-model="ctrlInstructor.actStartDate" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>End Date :</P></td>
+						<td style="width: 150px;"><input type="date" ng-model="ctrlInstructor.actEndDate" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P></P></td>
+						<td style="width: 150px; "><input type="button" value="ADD ACTIVITY" ng-click="ctrlInstructor.activitySubmitClick()" /></td>
+					</tr>					
+				</table>
+			
+			</div>
+			
+			<div ng-hide="ctrlInstructor.rmvAct" class="col-md-12">
+						<br>
+				<h2 ng-hide="ctrlInstructor.Error" style="color: red">Unfortunately cannot Remove the activity now please try again later</h2>
+				<h2 ng-hide="ctrlInstructor.Success" style="color: green"> Activity is successfully removed</h2>
+				<br><br>
+			<div class="col-md-12">
+			<div ng-repeat="activity in ctrlInstructor.activities">
+				<div  class="courseList"><span> <a>{{activity.activityName}} -- {{activity.activityDetails}} </a> </span>
+				<span class="courseListSpan"><input type="button" value="REMOVE" ng-click="ctrlInstructor.removeActivityClick(activity.activityId)"/> </span> </div><br>
+
+			</div>
+			</div>
+			
+			</div>
+			
+			
+			
+			<div ng-hide="ctrlInstructor.addTask" class="col-md-12">
+				<br>
+				<h2 ng-hide="ctrlInstructor.Error" style="color: red">Please enter all details for adding a new Task</h2>
+				<h2 ng-hide="ctrlInstructor.Success" style="color: green">Task is successfully added</h2>
+				<br><br>
+				<table style="margin-left: 35%">
+					<tr>
+						<td style="width: 150px;"><P>Activity Id :</P></td>
+						<td style="width: 150px;">
+						<select ng-model="ctrlInstructor.taskActId">
+								<option ng-repeat="activity in ctrlInstructor.activities">{{activity.activityId}} - {{activity.activityName}}</option>
+						</select> 
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Task Name :</P></td>
+						<td style="width: 150px;"><input type="text" ng-model="ctrlInstructor.taskName" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Task Statement :</P></td>
+						<td style="width: 150px;"><textarea id="act_details" ng-model="ctrlInstructor.taskStatement"></textarea></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Task Solution :</P></td>
+						<td style="width: 150px;"><textarea id="act_details" ng-model="ctrlInstructor.taskSolution"></textarea></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Start Date :</P></td>
+						<td style="width: 150px;"><input type="date" ng-model="ctrlInstructor.taskStartDate" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>End Date :</P></td>
+						<td style="width: 150px;"><input type="date" ng-model="ctrlInstructor.taskEndDate" /></td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P></P></td>
+						<td style="width: 150px; "><input type="button" value="ADD TASK" ng-click="ctrlInstructor.taskSubmitClick()" /></td>
+					</tr>					
+				</table>
+			</div>
+			
+			<div ng-hide="ctrlInstructor.rmvTask" class="col-md-12">
+									<br>
+				<h2 ng-hide="ctrlInstructor.Error" style="color: red">Unfortunately cannot Remove the Task now please try again later</h2>
+				<h2 ng-hide="ctrlInstructor.Success" style="color: green"> Task is successfully removed</h2>
+				<br><br>
+			<div class="col-md-12">
+			<div ng-repeat="task in ctrlInstructor.tasks">
+				<div  class="courseList"><span> <a>{{task.taskId}} -- {{task.taskName}} </a> </span>
+				<span class="courseListSpan"><input type="button" value="REMOVE" ng-click="ctrlInstructor.removeTaskClick(task.taskId)"/> </span> </div><br>
+
+			</div>
+			</div>
+			
+			</div>
+			
+			<div ng-hide="ctrlInstructor.addStd" class="col-md-12">
+			<br>
+				<h2 ng-hide="ctrlInstructor.Error" style="color: red">Please enter all details for adding a new Student</h2>
+				<h2 ng-hide="ctrlInstructor.Success" style="color: green">Student is successfully added to the course</h2>
+				<br><br>
+				<table style="margin-left: 35%">
+					<tr>
+						<td style="width: 150px;"><P>Student Id:</P></td>
+						<td style="width: 150px;">
+						<select ng-model="ctrlInstructor.addStudentId">
+								<option ng-repeat="student in ctrlInstructor.students">{{student.studentId}} - {{student.studentName}}</option>
+						</select> 
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P>Course:</P></td>
+						<td style="width: 150px;">
+						<select ng-model="ctrlInstructor.addCourseId">
+								<option ng-repeat="course in ctrlInstructor.courses">{{course.courseId}} - {{course.courseName}}</option>
+						</select> 
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 150px;"><P></P></td>
+						<td style="width: 150px; "><input type="button" value="ADD STUDENT TO COURSE" ng-click="ctrlInstructor.addStudent()" /></td>
+					</tr>					
+				</table>
+			</div>
+		
+			<div ng-hide="ctrlInstructor.rmvStd" class="col-md-12">
+			
+				<br>
+				<h2 ng-hide="ctrlInstructor.Error" style="color: red">Unfortunately cannot Remove the Task now please try again later</h2>
+				<h2 ng-hide="ctrlInstructor.Success" style="color: green"> Task is successfully removed</h2>
+				<br><br>
+			
+			<div class="col-md-12">
+			<div ng-repeat="studentCourse in ctrlInstructor.studentCourse">
+				<div  class="courseList"><span> <a>{{studentCourse.studentId}} -- {{studentCourse.studentName}} || {{studentCourse.courseId}} - {{studentCourse.courseName}} </a> </span>
+				<span class="courseListSpan"><input type="button" value="REMOVE" ng-click="ctrlInstructor.removeStudentClick(studentCourse)"/> </span> </div><br>
+
+			</div>
+			</div>
+		
+			
+			</div>
+		
+
+		
+	</div>
+</div>
+
